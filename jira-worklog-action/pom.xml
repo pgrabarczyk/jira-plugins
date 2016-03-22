@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.pgrabarczyk</groupId>
+	<artifactId>jira-worklog-action</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<organization>
+		<name>Example Company</name>
+		<url>http://www.example.com/</url>
+	</organization>
+
+	<name>jira-worklog-action</name>
+	<description>This is the com.pgrabarczyk:jira-worklog-action plugin</description>
+	<packaging>atlassian-plugin</packaging>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<maven-jira-plugin.version>6.2.1</maven-jira-plugin.version>
+		<atlassian-spring-scanner.version>1.2.6</atlassian-spring-scanner.version>
+		<jira.version>7.1.0</jira.version>
+		<lombok.version>1.16.8</lombok.version>
+
+		<!-- This key is used to keep the consistency between the key in atlassian-plugin.xml and the key to generate bundle. -->
+		<atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.atlassian.maven.plugins</groupId>
+				<artifactId>maven-jira-plugin</artifactId>
+				<version>${maven-jira-plugin.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<productVersion>${jira.version}</productVersion>
+					<productDataVersion>${jira.version}</productDataVersion>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.atlassian.plugin</groupId>
+				<artifactId>atlassian-spring-scanner-maven-plugin</artifactId>
+				<version>${atlassian-spring-scanner.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>atlassian-spring-scanner</goal>
+						</goals>
+						<phase>process-classes</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<scannedDependencies>
+						<dependency>
+							<groupId>com.atlassian.plugin</groupId>
+							<artifactId>atlassian-spring-scanner-external-jar</artifactId>
+						</dependency>
+					</scannedDependencies>
+					<verbose>false</verbose>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.atlassian.jira</groupId>
+			<artifactId>jira-api</artifactId>
+			<version>${jira.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.atlassian.jira</groupId>
+			<artifactId>jira-core</artifactId>
+			<version>${jira.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+</project>

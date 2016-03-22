@@ -1,0 +1,18 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+    </plugin-info>
+
+	<webwork1 key="Create-worklog-extended" name="CreateWorkLog Extended" >
+		<actions>
+			<action name="com.pgrabarczyk.jira.worklog.action.XCreateWorkLog" alias="CreateWorklog" >
+				<view name="error">/secure/views/issue/logwork.jsp</view>
+				<view name="input">/secure/views/issue/logwork.jsp</view>
+				<view name="securitybreach">/secure/views/securitybreach.jsp</view>
+			</action>
+		</actions>
+	</webwork1>
+    
+</atlassian-plugin>
