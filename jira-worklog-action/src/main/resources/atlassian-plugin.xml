@@ -15,6 +15,16 @@
 				<view name="input">/secure/views/issue/logwork.jsp</view>
 				<view name="securitybreach">/secure/views/securitybreach.jsp</view>
 			</action>
+			<action name="com.pgrabarczyk.jira.worklog.action.XUpdateWorklog" alias="UpdateWorklog" >
+				<view name="error">/secure/views/issue/logwork.jsp</view>
+				<view name="input">/secure/views/issue/logwork.jsp</view>
+				<view name="securitybreach">/secure/views/securitybreach.jsp</view>
+			</action>
+			<action name="com.pgrabarczyk.jira.worklog.action.XDeleteWorklog" alias="DeleteWorklog" >
+				<view name="error">/secure/views/issue/deleteworklog.jsp</view>
+				<view name="input">/secure/views/issue/deleteworklog.jsp</view>
+				<view name="securitybreach">/secure/views/securitybreach.jsp</view>
+			</action>
 		</actions>
 	</webwork1>
 
@@ -23,6 +33,16 @@
 			<action name="com.pgrabarczyk.jira.worklog.action.XCreateWorklog" alias="XCreateWorklog" >
 				<view name="error">/secure/views/issue/logwork.jsp</view>
 				<view name="input">/secure/views/issue/logwork.jsp</view>
+				<view name="securitybreach">/secure/views/securitybreach.jsp</view>
+			</action>
+			<action name="com.pgrabarczyk.jira.worklog.action.XUpdateWorklog" alias="XUpdateWorklog" >
+				<view name="error">/secure/views/issue/logwork.jsp</view>
+				<view name="input">/secure/views/issue/logwork.jsp</view>
+				<view name="securitybreach">/secure/views/securitybreach.jsp</view>
+			</action>
+			<action name="com.pgrabarczyk.jira.worklog.action.XDeleteWorklog" alias="XDeleteWorklog" >
+				<view name="error">/secure/views/issue/deleteworklog.jsp</view>
+				<view name="input">/secure/views/issue/deleteworklog.jsp</view>
 				<view name="securitybreach">/secure/views/securitybreach.jsp</view>
 			</action>
 		</actions>

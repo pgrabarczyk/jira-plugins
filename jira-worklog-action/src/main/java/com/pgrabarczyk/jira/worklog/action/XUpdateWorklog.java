@@ -11,17 +11,17 @@ import com.atlassian.jira.security.xsrf.RequiresXsrfCheck;
 import com.atlassian.jira.user.util.UserUtil;
 import com.atlassian.jira.util.JiraDurationUtils;
 import com.atlassian.jira.web.FieldVisibilityManager;
-import com.atlassian.jira.web.action.issue.CreateWorklog;
+import com.atlassian.jira.web.action.issue.UpdateWorklog;
 import com.pgrabarczyk.jira.worklog.MyExtraLogicService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class XCreateWorklog extends CreateWorklog {
+public class XUpdateWorklog extends UpdateWorklog {
 
-	private static final long serialVersionUID = 2665262982560525050L;
-	
-	public XCreateWorklog(
+	private static final long serialVersionUID = 8432551294556579352L;
+
+	public XUpdateWorklog(
 			WorklogService worklogService,
 			CommentService commentService,
 			ProjectRoleManager projectRoleManager,
@@ -32,9 +32,10 @@ public class XCreateWorklog extends CreateWorklog {
 			RendererManager rendererManager,
 			UserUtil userUtil,
 			FeatureManager featureManager) {
-		super(worklogService, commentService, projectRoleManager, jiraDurationUtils, dateTimeFormatterFactory, fieldVisibilityManager, fieldLayoutManager, rendererManager, userUtil, featureManager);
+		super(worklogService, commentService, projectRoleManager, jiraDurationUtils, dateTimeFormatterFactory,
+				fieldVisibilityManager, fieldLayoutManager, rendererManager, userUtil, featureManager);
 	}
-
+	
 	@Override
 	@RequiresXsrfCheck
 	public String doExecute() throws Exception {
