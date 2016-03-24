@@ -5,9 +5,22 @@
         <vendor name="${project.organization.name}" url="${project.organization.url}" />
     </plugin-info>
 
-	<webwork1 key="Create-worklog-extended" name="CreateWorkLog Extended" >
+	<!-- TRICK : http://www.j-tricks.com/tutorials/component-import-gotchas-nosuchbeandefinitionexception -->
+	<component key="jiraDurationUtils" name="JIRA Duration Utils" class="com.atlassian.jira.util.JiraDurationUtils" />
+
+	<webwork1 key="webwork-worklogs" name="Webwork Worklogs" >
 		<actions>
-			<action name="com.pgrabarczyk.jira.worklog.action.XCreateWorkLog" alias="CreateWorklog" >
+			<action name="com.pgrabarczyk.jira.worklog.action.XCreateWorklog" alias="CreateWorklog" >
+				<view name="error">/secure/views/issue/logwork.jsp</view>
+				<view name="input">/secure/views/issue/logwork.jsp</view>
+				<view name="securitybreach">/secure/views/securitybreach.jsp</view>
+			</action>
+		</actions>
+	</webwork1>
+
+	<webwork1 key="webwork-worklogs-extended" name="Webwork Worklogs Extended" >
+		<actions>
+			<action name="com.pgrabarczyk.jira.worklog.action.XCreateWorklog" alias="XCreateWorklog" >
 				<view name="error">/secure/views/issue/logwork.jsp</view>
 				<view name="input">/secure/views/issue/logwork.jsp</view>
 				<view name="securitybreach">/secure/views/securitybreach.jsp</view>
